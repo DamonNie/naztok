@@ -1,0 +1,57 @@
+服务器或vps安装windoes2012 64位系统
+
+下载phpstudy 下载地址：http://www.phpstudy.net/phpstudy/phpStudy20161103.zip
+
+安装后选择php-5.5.38-nts+APache 运行环境，为了安全修改root密码
+
+登陆phpmyadmin后台新建用户数据库导入数据文件.sql
+
+下个安装notepad++编辑器对源码编辑修改,不要使用记事本编辑源码
+
+数据库对接设置在根目录index.php
+
+登陆后台网址/admin/login/admin888sss.html,后台密码admin 123456
+
+去短信平台http://www.smsbao.com注册并购买短信服务
+
+修改application/common/common/function.php里面的用户名和密码
+
+在WWW根目录下修改auto888.php这个文件里面的域名地址，把127.0.0.1修改成你自己的域名
+
+修改auto目录里面的文件的文件路径，然后双击执行aa.vbs
+
+==========================
+去掉手机端方法
+
+根目录index.php文件删除以下代码
+    // 定义手机端网址
+    define('WAP_URL', 'http://shop.ylthfj.com');
+
+
+找到Application\Home\Controller\HomeController.class.php文件删除以下代码
+
+if(WAP_URL !=""){
+			$ua = @$_SERVER['HTTP_USER_AGENT'];
+
+			if(preg_match('/(iphone|android|Windows\sPhone)/i', $ua)){
+				$qq3479015851_redirect="";
+				if (isset($_GET['invit'])) {
+					$invit = $_GET['invit'];
+					$user = M('User')->where(array('invit' => $invit))->find();
+
+					if ($user['id']) {
+						$qq3479015851_redirect = WAP_URL."/Login/register/invit/".$user['id'];
+					}else{
+						$qq3479015851_redirect = WAP_URL;
+					}
+				}else{
+					$qq3479015851_redirect = WAP_URL;
+				}
+				header("Location:".$qq3479015851_redirect);
+				die();
+			} 
+		}
+
+
+
+

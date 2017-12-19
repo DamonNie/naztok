@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>普通版K线</title>
+<script src="__PUBLIC__/Home/js/movesay.js"></script>
+<script src="__PUBLIC__/Home/js/highstock.js"></script>
+
+<body style="height:400px;width:100%">
+<script type="text/javascript" src="http://static2.sosobtc.com/sb.js"></script>
+<script type="text/javascript">
+    new SOSOBTC.widget({
+        "symbol": "{$xnb}:BTCTRADE",
+        "default_theme": "dark",
+        "disable_theme_change": true,
+        "container": "kline_container"
+    })
+</script>
+</body>
+
+</html>
